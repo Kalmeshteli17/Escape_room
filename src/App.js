@@ -1,7 +1,7 @@
 // App.js
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls";
 import GUI from "lil-gui";
 
@@ -61,6 +61,7 @@ const App = () => {
     dirLightFolder
       .add(directionalLight, "intensity", 0, 2, 0.01)
       .name("Intensity");
+    dirLightFolder.close(); // Close Directional Light folder by default
 
     // Model Loading (Room)
     const loader = new GLTFLoader();
@@ -78,7 +79,7 @@ const App = () => {
       }
     );
 
-/*
+    /*
     // Chair Model Loading
     const chairLoader = new GLTFLoader();
     const chairModelUrl = new URL("./furniture1.glb", import.meta.url);
